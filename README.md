@@ -3,7 +3,7 @@ Computing Mersenne Primes using Java and BigInteger
 
 [Mersenne Primes](https://en.wikipedia.org/wiki/Mersenne_prime) are prime numbers one less than a power of two (2^N - 1).
 
-These numbers get large fast so in order to calculate them with Java you need to use BigInteger, which can hold a whole number as large the available memory.
+These numbers get large fast so in order to calculate them with Java you need to use BigInteger, which can hold a whole number as large as the available memory.
 
 Current success with this code:
 
