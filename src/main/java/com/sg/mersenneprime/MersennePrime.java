@@ -80,7 +80,7 @@ public class MersennePrime {
             return false;
         }
 
-        BigInteger max = value.divide(BigInteger.valueOf(2));
+        BigInteger max = squareRoot(value);
         for (BigInteger bi = BigInteger.valueOf(3); bi.compareTo(max) < 0; bi = bi.add(two)) {
             if (value.mod(bi).equals(BigInteger.ZERO)) {
                 return false;
@@ -88,5 +88,49 @@ public class MersennePrime {
             max = value.divide(bi);
         }
         return true;
+    }
+
+    public BigInteger sqrt(BigInteger n) {
+        BigInteger a = BigInteger.ONE;
+        BigInteger b = n.shiftRight(5).add(BigInteger.valueOf(8));
+        while (b.compareTo(a) >= 0) {
+            BigInteger mid = a.add(b).shiftRight(1);
+            if (mid.multiply(mid).compareTo(n) > 0) {
+                b = mid.subtract(BigInteger.ONE);
+            } else {
+                a = mid.add(BigInteger.ONE);
+            }
+        }
+        return a.subtract(BigInteger.ONE);
+    }
+    
+    public BigInteger squareRoot(BigInteger n) {
+        
+        //Get the power of 2 bitlength for the calculation
+        int bitLength = n.bitLength();
+        for(int i = 0;i<100;i++) {
+            if(Math.pow(2, i) > bitLength) {
+                bitLength = (int) Math.pow(2, i);
+                break;
+            }
+        }
+        
+        BigInteger res = BigInteger.ZERO;
+        BigInteger bit = BigInteger.ONE.shiftLeft(bitLength-2); 
+        
+        while(bit.compareTo(n) > 0) {
+            bit = bit.shiftRight(2);
+        }
+        
+        while(!bit.equals(BigInteger.ZERO)) {
+            if(n.compareTo(res.add(bit)) >= 0) {
+                n = n.subtract(res.add(bit));
+                res = res.shiftRight(1).add(bit);
+            } else {
+                res = res.shiftRight(1);
+            }
+            bit = bit.shiftRight(2);
+        }
+        return res;
     }
 }
