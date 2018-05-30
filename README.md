@@ -9,15 +9,15 @@ Current success with this code running on a Raspberry PI Model A at home:
 
 Number|Power|Value|Time
 ---|---|---|---
-1|2|3|16ms
-2|3|7|1ms
-3|5|31|2ms
-4|7|127|1ms
-5|13|8191|16ms
-6|17|131071|24ms
-7|19|524287|74ms
-8|31|2147483647|411ms
-9|61|2305843009213693951|4836188ms
+1|2|3|14ms
+2|3|7|2ms
+3|5|31|1ms
+4|7|127|2ms
+5|13|8191|4ms
+6|17|131071|16ms
+7|19|524287|30ms
+8|31|2147483647|597ms
+9|61|2305843009213693951|n/a on current run
 
 Runtime on my work 2015 Macbook Pro:
 
