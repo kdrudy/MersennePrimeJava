@@ -35,7 +35,7 @@ public class MersennePrime {
             BigInteger value = BigInteger.valueOf(2).pow(i).subtract(BigInteger.ONE);
             long time = System.currentTimeMillis();
 
-            if (isPrime(value)) {
+            if (isPrime2(value)) {
                 System.out.println(i + ":" + value + ":" + (System.currentTimeMillis() - time) + "ms");
             } else {
                 //System.out.println("NO " + i + ":" + value + ":" + (System.currentTimeMillis() - time) + "ms");
@@ -85,6 +85,31 @@ public class MersennePrime {
             if (value.mod(bi).equals(BigInteger.ZERO)) {
                 return false;
             }
+        }
+        return true;
+    }
+    
+    public boolean isPrime2(BigInteger value) {
+        BigInteger two = new BigInteger("2");
+        BigInteger three = new BigInteger("3");
+
+        if (value.equals(BigInteger.ZERO) || value.equals(BigInteger.ONE)) {
+            return false;
+        }
+        if (value.equals(two) || value.equals(three)) {
+            return true;
+        }
+        if (value.mod(two).equals(BigInteger.ZERO) || value.mod(three).equals(BigInteger.ZERO)) {
+            return false;
+        }
+
+        BigInteger i = new BigInteger("5");
+        while(i.multiply(i).compareTo(value) <= 0) {
+            if(value.mod(i).equals(BigInteger.ZERO) ||
+                    value.mod(i.add(two)).equals(BigInteger.ZERO)) {
+                return false;
+            }
+            i = i.add(BigInteger.valueOf(6));
         }
         return true;
     }
