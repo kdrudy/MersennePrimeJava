@@ -17,7 +17,7 @@ Number|Power|Value|Time
 6|17|131071|16ms
 7|19|524287|30ms
 8|31|2147483647|597ms
-9|61|2305843009213693951|n/a on current run
+9|61|2305843009213693951|4193375ms
 
 Runtime on my work 2015 Macbook Pro:
 
